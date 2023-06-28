@@ -1,0 +1,17 @@
+<div class="sub">
+    <div class="sub__container">
+        @@include('titles.html', {
+        "pre-title": "Don’t miss anything",
+        "title": "Subscribe to the Createx School announcements"
+        })
+
+        <form action="../static/subscribe.php" class="sub__form">
+            <label class="input__mail">
+                <input type="text" class="sub__input" name="email" placeholder="Your working email">
+                <span class="input-warning">Incorrect Email</span>
+            </label>
+
+            <button type="submit" class="btn btn_red sub__btn">Subscribe</button>
+        </form>
+    </div>
+</div>

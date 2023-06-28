@@ -1,0 +1,129 @@
+.event {
+  padding: 80px 0;
+  margin-top: 160px;
+  background-image: url("../../images/event-bg.png");
+  background-color: var(--btn-gradient, linear-gradient(45deg, #FF3F3A 0%, #F75E05 100%));
+  background-position-y: bottom;
+
+  @include media(1250) {
+    margin-top: 30px;
+    padding: 40px 0;
+  }
+
+
+  .titles__wrapper {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  &-link {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 32px 40px;
+    @extend %flex;
+    margin-top: 24px;
+    transition: 0.3s;
+
+    @include media(760) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &:hover {
+      box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.16), 0px 30px 24px -10px rgba(255, 63, 58, 0.1), 0px 12px 10px -6px rgba(255, 63, 58, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+      transition: 0.3s;
+    }
+
+    &__date {
+      @extend %flex;
+      margin-right: 40px;
+
+      @include media(760) {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .event-link__text {
+        width: 100px;
+      }
+    }
+
+    &__number {
+      font-weight: 900;
+      font-size: 48px;
+      line-height: 130%;
+      color: $redColor;
+      letter-spacing: 1px;
+      margin-right: 20px;
+    }
+
+    &__text {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 150%;
+      max-width: 757px;
+
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #787A80;
+        display: block;
+      }
+    }
+
+    &__btn-wrapper {
+      margin-left: auto;
+
+      @include media(760) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+    &__btn {
+      padding: 0 32px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 44px;
+
+      @include media(1250) {
+        width: 136px;
+      }
+
+
+      &:hover {
+        color: #fff;
+        background: $redColor;
+      }
+    }
+  }
+
+  &__more {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 150%;
+    text-align: center;
+    margin-top: 60px;
+
+    @include media(575) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-btn {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 52px;
+      letter-spacing: 0.5px;
+      margin-left: 40px;
+
+      @include media(575) {
+        margin-left: 0;
+        width: 214px;
+        margin-top: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.sub {
+  background: url("../../images/Subscribe.png") no-repeat bottom / cover;
+  padding: 120px 0 180px;
+  text-align: center;
+  margin-top: 180px;
+
+  @include media(1250) {
+    padding: 30px 0;
+    margin-top: 30px;
+  }
+
+  @include media(700) {
+    background-position: initial;
+  }
+
+  .titles__wrapper {
+    max-width: 810px;
+    margin: 0 auto;
+  }
+
+  &__form {
+    margin-top: 60px;
+
+    @include media(490) {
+      margin-top: 30px;
+    }
+
+    @include media(370) {
+      .sub__btn {
+        padding: 0 10px;
+      }
+    }
+
+  }
+
+  &__input {
+    background: #FFFFFF;
+    border: 1px solid #D7DADD;
+    border-radius: 4px;
+    padding: 13px 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #9A9CA5;
+    width: 422px;
+    margin-right: 20px;
+
+    @include media(700) {
+      width: 300px;
+    }
+
+    @include media(490) {
+      width: auto;
+      padding: 8px 16px;
+      margin-right: 5px;
+    }
+
+    @include media(370) {
+      width: 180px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      color: #9A9CA5;
+    }
+  }
+}

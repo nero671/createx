@@ -1,0 +1,36 @@
+<div class="features__courses_item">
+    <a href="#" class="features__courses_link">
+        <div class="features__courses_wrapper">
+            <div class="features__courses_img">
+                <img src="@@img" alt="Person" >
+            </div>
+            <div class="features__courses_content">
+
+                <div class="features__courses_label">
+                    @@if(context.marketing) {
+                        <span class="label--bg-@@marketing.bg">@@marketing.title</span>
+                    }
+                    @@if(context.management) {
+                        <span class="label--bg-@@management.bg">@@management.title</span>
+                    }
+                    @@if(context.hr) {
+                        <span class="label--bg-@@hr.bg">@@hr.title</span>
+                    }
+                    @@if(context.design) {
+                        <span class="label--bg-@@design.bg">@@design.title</span>
+                    }
+                    @@if(context.development) {
+                        <span class="label--bg-@@development.bg">@@development.title</span>
+                    }
+                </div>
+                <div class="features__courses_title">
+                    @@title
+                </div>
+                <div class="features__courses_price">
+                    <span>@@price</span>
+                    @@name
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

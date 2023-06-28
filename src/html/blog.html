@@ -1,0 +1,54 @@
+<div class="blog">
+    <div class="blog__container">
+        <div class="blog__title-wrapper">
+            @@include('titles.html', {
+            "pre-title": "Our blog",
+            "title": "Latest posts"
+            })
+
+            <div class="blog__title-btn">
+                <a href="#" target="_blank" class="btn btn_red">
+                    Go to blog
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-wrapper">
+            @@loop('blog-item.html', [
+            {
+            "img": "images/blog/b1.png",
+            "label": "images/blog/podcast.png",
+            "discipline": "Marketing",
+            "date": "September 4, 2020",
+            "duration": "36 min",
+            "title": "What is traffic arbitrage and does it really make money?",
+            "text": "Pharetra, ullamcorper iaculis viverra parturient sed id sed. Convallis proin dignissim lacus, purus gravida Pharetra, ullamcorper iaculis viverra parturient sed id sed. Convallis proin dignissim lacus, purus gravida...",
+            "link": "#",
+            "link-detail": "Listen"
+            },
+            {
+            "img": "images/blog/b2.png",
+            "label": "images/blog/video.png",
+            "discipline": "Management",
+            "date": "August 25, 2020",
+            "duration": "45 min",
+            "title": "What to do and who to talk to if you want to get feedback on the product",
+            "text": "Neque a, senectus consectetur odio in aliquet nec eu. Ultricies ac nibh urna urna sagittis faucibus... Neque a, senectus consectetur odio in aliquet nec eu. Ultricies ac nibh urna urna sagittis faucibus...",
+            "link": "#",
+            "link-detail": "Watch"
+            },
+            {
+            "img": "images/blog/b3.png",
+            "label": "images/blog/article.png",
+            "discipline": "Design",
+            "date": "August 8, 2020",
+            "duration": "45 min",
+            "title": "Should you choose a creative profession if you are attracted to creativity?",
+            "text": "Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices...",
+            "link": "#",
+            "link-detail": "Read"
+            },
+            ])
+        </div>
+    </div>
+</div>

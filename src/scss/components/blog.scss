@@ -1,0 +1,124 @@
+.blog {
+  padding-top: 120px;
+
+  @include media(1250) {
+    padding-top: 30px;
+  }
+
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &-wrapper {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+
+    @include media(1060) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(700) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__img {
+    position: relative;
+    padding-bottom: 76.9%;
+
+    img {
+      border-radius: 4px;
+    }
+
+    &-label-wrapper {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+
+      img {
+        position: static;
+      }
+    }
+  }
+
+  &-date-wrapper {
+    @extend %flex;
+    margin-top: 16px;
+    font-weight: 700;
+
+    &__text {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      color: #787A80;
+      @extend %flex;
+
+      @include media(360) {
+        font-size: 12px;
+      }
+
+      img {
+        margin-right: 8px;
+      }
+
+      &:not(:first-child) {
+        font-weight: 400;
+      }
+
+      &:not(:last-child):after {
+        content: '';
+        width: 1px;
+        height: 12px;
+        display: inline-block;
+        background: #787A80;
+        margin: 1px 12px;
+      }
+
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #424551;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+  }
+
+  &__link-detail {
+    @extend %flex;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    color: #1E212C;
+    margin-top: 16px;
+
+    img {
+      margin-left: 8px;
+    }
+  }
+
+}

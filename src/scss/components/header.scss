@@ -1,32 +1,103 @@
 // =====================================================================================================================
 .header {
   width: 100%;
+  padding: 20px 0;
+  transition: 0.3s;
 
   &.sticky {
-    // ..стили для липкого хедера
+    position: fixed;
+    z-index: 99999999;
+  }
+
+  &-black {
+    background: $blackColor;
+    transition: 0.3s;
+
+    .logo .logo-color {
+      fill: #fff;
+    }
+
+    .menu__link,
+    .header-registration__btn {
+      color: #fff;
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+        color: #fff;
+      }
+    }
+
+    .header-registration svg path {
+      fill: #fff;
+      opacity: 0.6;
+    }
+
+    .icon-menu:before,
+    .icon-menu:after,
+    .icon-menu span {
+        background-color: #fff;
+    }
   }
 
   // .header__container
   &__container {
-    height: rem($headerHeight);
     display: flex;
     align-items: center;
+  }
+
+  &-buttons {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+    @include media(1090) {
+      display: none;
+    }
+  }
+
+  &-registration {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 8px;
+      margin-left: 36px;
+    }
+
+    span {
+      padding: 0 5px;
+    }
+
+    &__btn {
+      color: #424551;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      background: transparent;
+
+      &:not(span):hover {
+        color: $redColor;
+      }
+    }
   }
 }
 // =====================================================================================================================
 
 // Burger
-/*
+
 .icon-menu {
   display: none;
+  background: transparent;
 
-  @include media(767) {
+  @include media(1090) {
     display: block;
     position: relative;
-    width: rem(30);
-    height: rem(18);
+    width: 30px;
+    height: 20px;
     cursor: pointer;
     z-index: 5;
+    margin-left: auto;
 
     span,
     &::before,
@@ -36,7 +107,7 @@
       right: 0;
       position: absolute;
       width: 100%;
-      height: rem(2);
+      height: 2px;
       background-color: #000;
     }
 
@@ -49,7 +120,7 @@
     }
 
     span {
-      top: calc(50% - rem(1));
+      top: calc(50% - 1px);
     }
 
     .menu-open & {
@@ -58,15 +129,49 @@
       }
 
       &::before {
-        top: calc(50% - rem(1));
+        top: calc(50% - 1px);
         transform: rotate(-45deg);
       }
 
       &::after {
-        bottom: calc(50% - rem(1));
+        bottom: calc(50% - 1px);
         transform: rotate(45deg);
       }
     }
   }
 }
-*/
+
+
+.menu {
+  margin-left: 50px;
+
+  @include media(1090) {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    padding: 0 20px;
+
+    a {
+      color: #424551;
+
+      &:hover {
+        color: $redColor;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+[
+  {
+    "img": "images/1.png",
+    "title": "The Ultimate Google Ads Training Course",
+    "price": "$100",
+    "name": "by Jerome Bell",
+    "marketing": {
+      "title": "Marketing",
+      "bg": "green"
+    }
+  },
+
+  {
+    "img": "images/2.png",
+    "title": "Product Management Fundamentals",
+    "price": "$480",
+    "name": "by Marvin McKinney",
+    "management": {
+      "title": "Management",
+      "bg": "blue"
+    }
+  },
+  {
+    "img": "images/3.png",
+    "title": "HR  Management and Analytics",
+    "price": "$200",
+    "name": "by Leslie Alexander Li",
+    "marketing": {
+      "title": "HR & Recruting",
+      "bg": "orange"
+    }
+  },
+
+  {
+    "img": "images/4.png",
+    "title": "Brand Management & PR Communications",
+    "price": "$530",
+    "name": "by Kristin Watson",
+    "marketing": {
+      "title": "Marketing",
+      "bg": "green"
+    }
+  },
+  {
+    "img": "images/5.png",
+    "title": "Business Development Management",
+    "price": "$400",
+    "name": "by Dianne Russell",
+    "management": {
+      "title": "Management",
+      "bg": "blue"
+    }
+  },
+
+  {
+    "img": "images/6.png",
+    "title": "Graphic Design Basic",
+    "price": "$500",
+    "name": "by Guy Hawkins",
+    "design": {
+      "title": "Design",
+      "bg": "pink"
+    }
+  }
+]

@@ -65,12 +65,13 @@ function setHash(hash) {
 // Функция для фиксированной шапки при скролле ===========================================================
 function headerFixed() {
   const headerStickyObserver = new IntersectionObserver(([entry]) => {
-    header.classList.toggle('sticky', !entry.isIntersecting);
+    header.classList.toggle('header-black', !entry.isIntersecting);
   });
 
   if (firstScreen) {
     headerStickyObserver.observe(firstScreen);
   }
+
 }
 
 // Универсальная функция для открытия и закрытия попапов ==================================================
@@ -95,13 +96,132 @@ const togglePopupWindows = () => {
       target.classList.contains('_overlay-bg') ||
       target.closest('.button-close')
     ) {
-      const popup = target.closest('._overlay-bg');
+      const popup = target.closest('._is-open');
 
       popup.classList.remove('_is-open');
       toggleBodyLock(false);
     }
   });
 };
+
+
+//Tabs
+const Tabs = (linkWrapper, link, content) => {
+  const toggleTab = (index) => {
+    for(let i = 0; i < content.length; i++) {
+      if (index === i) {
+        link[i].classList.add('active');
+        content[i].classList.add('active');
+      } else {
+        link[i].classList.remove('active');
+        content[i].classList.remove('active');
+      }
+    }
+  }
+
+  if (linkWrapper) {
+    linkWrapper.addEventListener('click', (e) => {
+      let target = e.target;
+      const linkClass = '.' + link[0].classList[0];
+
+      if (target.matches(linkClass)) {
+        console.log('test')
+        link.forEach((item, i) => {
+          if (item === target) {
+            toggleTab(i);
+          }
+        })
+      }
+    })
+  }
+}
+
+//Accordion
+
+const useAccordion = (accordionWrapper) => {
+  const accordion = accordionWrapper;
+
+  const open = (button, dropdown, arrow) => {
+    dropdown.style.height = "".concat(dropdown.scrollHeight + "px");
+    button.classList.add('active');
+    dropdown.classList.add('active');
+    arrow.classList.add('active');
+  };
+
+  const close = (button, dropdown, arrow) => {
+    button.classList.remove('active');
+    dropdown.classList.remove('active');
+    dropdown.style.height = '';
+    arrow.classList.remove('active');
+  };
+
+  if (accordion) {
+    accordion.addEventListener('click', function (e) {
+      const target = e.target;
+
+      if (target.closest('[class*="__title"]')) {
+        const parent = target.closest('[class$="__item"]');
+        const button = target.closest('[class*="__title"]');
+        const dropdown = parent.querySelector('[class*="__link"]');
+        const arrow = parent.querySelector('[class*="__title"] svg');
+
+        dropdown.classList.contains('active') ? close(button, dropdown, arrow) : open(button, dropdown, arrow);
+      }
+    });
+  }
+};
+
+//Validation
+
+const validateEmail = (email) => {
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return emailRegex.test(email);
+}
+
+
+const submitForm = (formName) => {
+  const form = formName;
+
+  const email = form.querySelector('input[name="email"]');
+
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailValue = email.value.trim();
+    const message = form.querySelector('.input__mail span');
+
+    const changeInput = () => {
+      email.addEventListener('input', () => {
+        email.style.cssText = 'border: initial';
+        message.style.opacity = '0';
+      })
+    }
+
+    const clearInput = () => {
+      setTimeout(() => {
+        email.style.cssText = 'border: initial';
+        message.style.opacity = '0';
+        email.value = '';
+      }, 3000)
+    }
+
+
+    if (validateEmail(emailValue)) {
+      form.submit();
+      email.style.cssText = 'border: 1px solid green';
+      message.style.cssText = 'opacity:1;color:green;';
+      message.textContent = 'Success'
+      clearInput();
+    } else {
+      email.style.cssText = 'border: 1px solid red';
+      message.style.cssText = 'opacity:1;color:red;';
+      message.textContent = 'Incorrect Email'
+      changeInput();
+
+    }
+  })
+
+}
 
 export {
   isWebp,
@@ -112,4 +232,8 @@ export {
   addLoadedClass,
   getHash,
   setHash,
-};
+  Tabs,
+  useAccordion,
+  submitForm
+}
+

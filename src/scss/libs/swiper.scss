@@ -156,3 +156,24 @@
 .swiper-centered > .swiper-wrapper > .swiper-slide {
   scroll-snap-align: center center;
 }
+
+.swiper-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.swiper-pagination-bullet {
+  width: 30px;
+  height: 3px;
+  background: #B3B7BC;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 6px;
+  cursor: pointer;
+
+  &-active {
+    background: #424551;
+  }
+}

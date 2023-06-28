@@ -6,23 +6,81 @@
 
  * Если мы хотим добавить модуль следует его раскомментировать
  */
+
+import { tabsLinks, tabsLink, tabsContent, subForm, footerForm, footerNavigation } from './helpers/elementsNodeList';
+
+
 import {
   isWebp,
   headerFixed,
   togglePopupWindows,
   addTouchClass,
   addLoadedClass,
+  Tabs,
+  useAccordion,
+  submitForm
 } from './modules';
 
-// import BurgerMenu from './modules/BurgerMenu';
+Tabs(tabsLinks, tabsLink, tabsContent);
+submitForm(subForm);
+submitForm(footerForm);
+useAccordion(footerNavigation);
 
-// import Tabs from 'modules/Tabs';
+import BurgerMenu from './modules/BurgerMenu';
+
+// import { Tabs } from 'modules/Tabs';
+//
 
 // import { MousePRLX } from './libs/parallaxMouse'
 
 // import AOS from 'aos'
 
-// import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
+Swiper.use([Navigation]);
+Swiper.use([Pagination]);
+
+var rewardsSwiper = new Swiper('.team-slider', {
+  slidesPerView: 4,
+  slidesPerGroup: 1,
+  spaceBetween: 40,
+  navigation: {
+    nextEl: '.team__btn-next',
+    prevEl: '.team__btn-prev'
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 2
+    },
+    576: {
+      slidesPerView: 2
+    },
+    768: {
+      slidesPerView: 3
+    },
+    1000: {
+      slidesPerView: 4
+    }
+  }
+});
+
+
+
+var rewardsSwiper = new Swiper('.review-slider', {
+  slidesPerView: "auto",
+  slidesPerGroup: 1,
+  centeredSlides: true,
+  spaceBetween: 40,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.review__btn-next',
+    prevEl: '.review__btn-prev'
+  },
+});
+
 
 /* Проверка поддержки webp, добавление класса webp или no-webp для HTML
  ! (i) необходимо для корректного отображения webp из css
@@ -36,7 +94,7 @@ isWebp();
 // addLoadedClass();
 
 /* Модуль для работы с меню (Бургер) */
-// new BurgerMenu().init();
+new BurgerMenu().init();
 
 /**
  *  Библиотека для анимаций
@@ -48,7 +106,7 @@ isWebp();
 // const mousePrlx = new MousePRLX({});
 
 /** Фиксированный header */
-// headerFixed();
+headerFixed();
 
 /**
  *  Открытие/закрытие модальных окон
@@ -59,6 +117,7 @@ isWebp();
  * На обертку(враппер) окна добавь класс _overlay-bg
  * На кнопку для закрытия окна добавь класс button-close
  */
-// togglePopupWindows();
+togglePopupWindows();
 
 // const tabs = new Tabs('default-tabs', {});
+

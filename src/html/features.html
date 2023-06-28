@@ -1,0 +1,18 @@
+<div class="features">
+    <div class="features__container">
+        <div class="features__title">
+            @@include('titles.html', {
+                "pre-title": "Ready to learn?",
+                "title": "Featured Courses"
+            })
+            <div class="features__title_btn">
+                <a href="#" class="btn features__btn">
+                    View all courses
+                </a>
+            </div>
+        </div>
+        <div class="features__courses">
+            @@loop('courses-item.html', "static/courses.json")
+        </div>
+    </div>
+</div>

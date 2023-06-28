@@ -1,0 +1,124 @@
+.tabs {
+  padding-top: 180px;
+
+  @include media(1250) {
+    padding-top: 30px;
+  }
+
+  .titles__wrapper {
+    text-align: center;
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+
+    @include media(766) {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &-link {
+    @extend %flex;
+    justify-content: center;
+    padding: 10px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 160%;
+    color: #9A9CA5;
+    width: 100%;
+    max-width: 307px;
+
+    @include media(576) {
+      font-size: 12px;
+    }
+
+    &.active {
+      border: 1px solid $redColor;
+      color: $redColor;
+
+      svg path {
+        fill: $redColor;
+      }
+    }
+
+    &.hover {
+      color: #424551;
+
+      svg path {
+        fill: #424551;
+      }
+    }
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
+  &-content {
+    display: none;
+    @extend %flex;
+    justify-content: space-between;
+    margin-top: 60px;
+
+    @include media(766) {
+      margin-top: 30px;
+    }
+
+    &__item {
+      &_title {
+        font-weight: 900;
+        font-size: 32px;
+        line-height: 130%;
+
+        @include media(766) {
+          font-size: 24px;
+        }
+      }
+
+      &_text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #424551;
+        margin-top: 24px;
+        max-width: 495px;
+
+        @include media(766) {
+          margin-top: 15px;
+        }
+      }
+
+      &:last-child {
+        height: 440px;
+        width: 600px;
+
+        @include media(766) {
+          height: auto;
+          width: 100%;
+          margin-top: 20px;
+        }
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+
+
+        }
+      }
+    }
+
+    &.active {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

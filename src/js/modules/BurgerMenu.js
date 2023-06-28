@@ -14,8 +14,12 @@ class BurgerMenu extends Popup {
     if (this.burgerButton) {
       document.addEventListener('click', ({ target }) => {
         if (target.closest('.icon-menu')) {
+          const menuWrapper = document.querySelector('.mobile-menu__wrapper');
+
           this.html.classList.toggle('menu-open');
           this.toggleBodyLock(this.html.classList.contains('menu-open'));
+          menuWrapper.classList.toggle('active');
+
         }
       });
     }

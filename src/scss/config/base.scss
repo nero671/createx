@@ -12,18 +12,19 @@ body {
 
 // Стили основного ограничивающего контейнера =================================
 /*
-* (i) Стили будут применяться ко 
+* (i) Стили будут применяться ко
 * всем классам содержащим *__container
 * Например header__container, main__container и т.д.
 */
 [class*='__container'] {
-  max-width: rem($containerWidth + $mainOffset * 2);
+  max-width: $maxWidthContainer;
   margin: 0 auto;
-  padding: 0 rem($mainOffset);
+  padding: 0 $mainOffset;
 }
 // Стили отзывчивых картинок (IBG) ============================================
 [class*='-ibg'] {
   position: relative;
+  width: 100%;
 
   img {
     position: absolute;
@@ -31,7 +32,6 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    object-fit: cover;
   }
 }
 
@@ -40,6 +40,7 @@ body {
     object-fit: contain;
   }
 }
+
 // Стили для обертки модальных окон ===========================================
 [class*='_overlay-bg'] {
   position: fixed;
@@ -90,5 +91,42 @@ body {
 
   &_start {
     padding-top: rem($headerHeight);
+  }
+}
+
+.btn {
+  @extend %btn;
+
+  &_red {
+    color: #fff;
+    background: $redColor;
+  }
+
+  @include media(576) {
+    font-size: 14px;
+    line-height: 40px;
+    padding: 0 30px;
+  }
+}
+
+*:hover {
+  transition: all $animation-duration ease;
+}
+
+form label {
+  position: relative;
+
+  input {
+    transition: 0.3s;
+  }
+
+  span {
+    color: $redColor;
+    position: absolute;
+    left: 5px;
+    bottom: -175%;
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.3s;
   }
 }
